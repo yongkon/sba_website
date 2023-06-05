@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+
+        }
+
+        #contact {
+            background-image: url("../images/map.png");
+            background-position: center;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            height: 500px;
+            width: 100%;
+            background-repeat: no-repeat;
+        }
+
+        .contact_text {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            margin-right: 50px;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="../styles/nav.css">
+</head>
+<body>
+    <!-- Nav Bar-->
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <i class="fa-solid fa-plate-wheat"></i>
+            <a href="./index.html">YG Company</a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Food</a>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <ul class="navbar_login">
+            <li><a href="./login.html">Login</a></li>
+        </ul>
+    </nav>    
+    <!-- Contact -->
+    <section>
+        <div id="contact"></div>
+        <div class="contact_text">
+            <h1>Contact</h1>
+            <p>Find us at some [address] or call us at 050-505-1234</p>
+            <p>We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
+            <p><b>Reserve</b> a table, ask for today's special or just send us a message:</p>
+            <form action="" target="_blank">
+            <!-- Script for & Table-->
+            <script>
+                const rowCnt = 5;
+                const columnCnt = 1;
+                typeArr = ["text", "number","datetime-local","text","submit"];
+                placeholderArr = ["Name", "How many people", "Date and time", "Message \ Special requirements",""];
+                idArr = ["Name", "People", "CurrentDate", "Message", ""];
+
+                document.write('<table border="1">');
+                for (let i = 0; i < rowCnt; i++) {
+                    document.write('<tr>');
+                    for (let j = 0; j < columnCnt; j++)  {
+                        document.write('<td>');
+                        if (placeholderArr[i] != null && placeholderArr[i] != "") {
+                            document.write('<input type=' + typeArr[i] + ' placeholder=' + 
+                            placeholderArr[i] + ' required id=' + idArr[i] +'>'); 
+                        } else {
+                            document.write('<button type=' + typeArr[i] +'>SEND MESSAGE</button>');
+                        }
+                        document.write('</td>');
+                    }
+                    document.write('</tr>')
+                }
+                document.write('</table>');
+            </script>
+            </form>
+        </div>
+    </section>
+    <script>
+        window.addEventListener('load', () => {
+            var now = new Date();
+            now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+
+            /* remove second/millisecond if needed - credit ref. https://stackoverflow.com/questions/24468518/html5-input-datetime-local-default-value-of-today-and-current-time#comment112871765_60884408 */
+            now.setMilliseconds(null)
+            now.setSeconds(null)
+
+            document.getElementById('CurrentDate').value = now.toISOString().slice(0, -1);
+        });
+    </script>
+</body>
+</html>

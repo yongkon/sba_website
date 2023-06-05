@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Menu</title>
+    <style>
+        body {
+            background: url("../images/food-main2.jpg") no-repeat;
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="../styles/nav.css">
+</head>
+<body>
+    <nav class="navbar" style="width: 100%;">
+        <div class="navbar_logo">
+            <i class="fa-solid fa-plate-wheat"></i>
+            <a href="./index.html">YG Company</a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Food</a>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <ul class="navbar_login">
+            <li><a href="./login.html">Login</a></li>
+        </ul>
+    </nav>
+    <h2 style="top:50px; position: relative; text-align: center; background-color: beige; width:30%; margin-left:auto; margin-right:auto;">Main Menu</h2>
+    <table border="1" width = 80% style="background-color:darkkhaki;  text-align: center; margin-left:auto;margin-right:auto; top: 60px; position: relative; ">
+        <tr>
+            <th>Food</th>
+            <th>Price</th>
+            <th>Description</th>
+        </tr>
+        <tbody id="menuTable"></tbody>
+    </table>
+    
+    <script>
+        // Fetch JSON File 
+        function loadJSON(callback) {
+            var xobj = new XMLHttpRequest();
+            xobj.overrideMimeType("application/json");
+            xobj.open('GET', '../js/menu.json', true);
+            xobj.onreadystatechange = function () {
+                if (xobj.readyState == 4 && xobj.status == "200") {
+                    callback(xobj.responseText);
+                }
+            };
+            xobj.send(null);
+        }
+    
+        // From JSON Data To HTML Table
+        function generateTable(data) {
+        var menu = JSON.parse(data);
+    
+        var menuTable = document.getElementById('menuTable');
+    
+        for (var i = 0; i < menu.menu.length; i++) {
+            var row = menuTable.insertRow(i);
+    
+            var nameCell = row.insertCell(0);
+            nameCell.innerHTML = menu.menu[i].name;
+    
+            var priceCell = row.insertCell(1);
+            priceCell.innerHTML = menu.menu[i].price;
+
+            var descriptionCell = row.insertCell(2);
+            descriptionCell.innerHTML = menu.menu[i].description;
+
+            row.style.height = '60px';
+        }
+        }
+    
+        // JSON File Load & Make table function
+        loadJSON(function (response) {
+        generateTable(response);
+        });
+    </script>
+</body>
+</html>

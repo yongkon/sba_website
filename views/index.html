@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBA Project</title>
+    <style>
+        .intro_bg{
+            background-image: url("../images/food-main3.jpg");
+            height: 520px;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content p {
+            color:rgb(131, 129, 26);
+            font-size: 40px;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .content p:nth-child(2) {
+            color:coral;
+            font-size: 30px;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .navbar_menu {
+          margin: 0;
+          padding: 0;
+        }
+
+        .navbar_menu li {
+          list-style: none;
+        }
+
+        .navbar_menu a {
+          text-decoration: none;
+          color: white;
+        }
+
+        .navbar_menu {
+          height:50px;
+          color:white;
+          line-height: 50px; 
+          margin:0 auto;
+          text-align: center;
+        }
+        
+        .navbar_menu > li > ul > li {
+          float:left;
+          width:60px;
+          position:relative;
+        }
+
+
+    </style>
+    <link rel="stylesheet" href="../styles/card.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/nav.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4197f6b5da.js" crossorigin="anonymous"></script>    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <i class="fa-solid fa-plate-wheat"></i>
+            <a href="">YG Company</a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="#">Home</a>
+              <ul>
+                <li><a href="#">Menu1</a></li>
+                <li><a href="#">Menu2</a></li>
+                <li><a href="#">Menu3</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Food</a>
+              <ul>
+                <li><a href="./main_menu.html">Main</a></li>
+                <li><a href="#">Salad</a></li>
+                <li><a href="#">Appetizer</a></li>
+              </ul>
+            </li>
+            <li><a href="#">About</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+        </ul>
+        <ul class="navbar_login">
+            <li><a href="./login.html">Login</a></li>
+        </ul>
+    </nav>
+    <section class="wrap">
+        <div class="intro_bg"> 
+            <div class="content">
+                <p id ="dynamic"></p>
+                <p>Let's Deep Dive To The Food!</p>
+            </div>
+        </div>
+        <div>
+            <p style="display: flex; font-size: 30px; color:darkgreen; justify-content: center; ">
+                Many People Like It!
+            </p>
+        </div>
+        <div class="cards">
+            <div class="card">
+              <img class="card__image" src="../images/food-1.jpg" alt="">
+              <div class="card__content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                </p>
+              </div>
+              <div class="card__info">
+                <div>
+                  <i class="material-icons">thumb_up</i>310
+                </div>
+                <div>
+                  <a href="./" class="card__link">View Menu</a>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card__image" src="../images/food-4.jpg" alt="">
+              <div class="card__content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                </p>
+              </div>
+              <div class="card__info">
+                <div>
+                  <i class="material-icons">thumb_up</i>1,993
+                </div>
+                <div>
+                  <a href="./" class="card__link">View Menu</a>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <video class="card__image" src="../images/food video-2.mp4" autoplay loop muted></video>
+              <div class="card__content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                </p>
+              </div>
+              <div class="card__info">
+                <div>
+                  <i class="material-icons">thumb_up</i>887
+                </div>
+                <div>
+                  <a href="./" class="card__link">View Menu</a>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card__image" src="../images/steak-gif.gif" alt=""> 
+              <div class="card__content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ducimus id ab tenetur delectus reiciendis fugit autem qui at.
+                </p>
+              </div>
+              <div class="card__info">
+                <div>
+                  <i class="material-icons">thumb_up</i>2,512
+                </div>
+                <div>
+                  <a href="./" class="card__link">View Menu</a>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <h3>YG Company</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti doloribus odio sed!</p>
+            <ul class="socials">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="../js/index.js"></script>
+</body>
+</html>
